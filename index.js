@@ -77,10 +77,10 @@
             success: '现在您的 YouTube 没有广告！请注意：当您重新加载页面时，您需要重新启用快捷指令。',
         },
         'zh-tw': {
-            logo: '使用&nbsp;AdGuard',
-            alreadyExecuted: '捷徑已在運行。',
-            wrongDomain: '捷徑只能在 YouTube 上被啟動。',
-            success: '現在您的 YouTube 沒有廣告！請注意：當您重新載入頁面時，您需要重新啟動捷徑。',
+            logo: '偕同&nbsp;AdGuard',
+            alreadyExecuted: '此捷徑已被執行。',
+            wrongDomain: '此捷徑應該只於 YouTube 上被啟動。',
+            success: '現在 YouTube 為無廣告的！請注意，若您重新載入該頁面，您需要再次執行此捷徑。',
         },
         ko: {
             logo: 'AdGuard&nbsp;사용',
