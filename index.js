@@ -362,10 +362,16 @@
                 return;
             }
 
+            // Here is what these styles do:
+            // 1. Change AG marker color depending on the page
+            // 2. Hide Sign-in button on m.youtube.com otherwise it does not look good
+            // It is still possible to sign in by clicking "three dots" button.
+            // 3. Hide the marker when the user is searching for something
             const style = document.createElement('style');
             style.innerHTML = `[data-mode="watch"] #${LOGO_ID} { color: #fff; }
 [data-mode="searching"] #${LOGO_ID}, [data-mode="search"] #${LOGO_ID} { display: none; }
-#${LOGO_ID} { white-space: nowrap; }`;
+#${LOGO_ID} { white-space: nowrap; }
+.mobile-topbar-header-sign-in-button { display: none; }`;
             document.head.appendChild(style);
         };
 
