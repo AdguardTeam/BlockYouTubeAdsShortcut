@@ -125,7 +125,8 @@
     }
 
     if (window.location.hostname !== 'www.youtube.com'
-        && window.location.hostname !== 'm.youtube.com') {
+        && window.location.hostname !== 'm.youtube.com'
+        && window.location.hostname !== 'music.youtube.com') {
         finish(getMessage('wrongDomain'));
         return;
     }
@@ -367,11 +368,13 @@
             // 2. Hide Sign-in button on m.youtube.com otherwise it does not look good
             // It is still possible to sign in by clicking "three dots" button.
             // 3. Hide the marker when the user is searching for something
+            // 4. On YT Music apply display:block to the logo element
             const style = document.createElement('style');
             style.innerHTML = `[data-mode="watch"] #${LOGO_ID} { color: #fff; }
 [data-mode="searching"] #${LOGO_ID}, [data-mode="search"] #${LOGO_ID} { display: none; }
 #${LOGO_ID} { white-space: nowrap; }
-.mobile-topbar-header-sign-in-button { display: none; }`;
+.mobile-topbar-header-sign-in-button { display: none; }
+.ytmusic-nav-bar#left-content #${LOGO_ID} { display: block; }`;
             document.head.appendChild(style);
         };
 
@@ -390,11 +393,17 @@
                     btn.parentNode.insertBefore(logo, btn.nextSibling);
                     addAdGuardLogoStyle();
                 }
-            } else {
+            } else if (window.location.hostname === 'www.youtube.com') {
                 const code = document.getElementById('country-code');
                 if (code) {
                     code.innerHTML = '';
                     code.appendChild(logo);
+                    addAdGuardLogoStyle();
+                }
+            } else if (window.location.hostname === 'music.youtube.com') {
+                const el = document.querySelector('.ytmusic-nav-bar#left-content');
+                if (el) {
+                    el.appendChild(logo);
                     addAdGuardLogoStyle();
                 }
             }
