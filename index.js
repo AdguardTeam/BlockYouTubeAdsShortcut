@@ -415,9 +415,6 @@
 
         // Applies CSS that hides YouTube ad elements
         hideElements(window.location.hostname);
-        if (window.location.hostname === 'm.youtube.com') {
-            hideElements('www.youtube.com');
-        }
 
         // Some changes should be re-evaluated on every page change
         addAdGuardLogo();
