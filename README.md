@@ -16,3 +16,9 @@ The problem is that Safari Content Blocking capabilities is [not enough](https:/
 6. Done! Now YouTube is ad free.
 
 Please note, that every time you refresh the page, you need to run this shortcut again.
+
+## Remote version
+
+With the standard version of the shortcut, you need to reinstall it to get the latest changes we make in this repo. If you are tired of doing that, there's also a "remote" version of the shortcut. It downloads the latest version of the code from this repo everytime it is launched.
+
+[Get the remote version](https://agrd.io/ios_youtube_shortcut_remote).
