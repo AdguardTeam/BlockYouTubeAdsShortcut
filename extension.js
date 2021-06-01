@@ -450,12 +450,12 @@ function runBlockYoutube() {
 const ExtensionJavaScriptClass = function () { };
 
 ExtensionJavaScriptClass.prototype = {
-    run: (args) => {
+    run: (arguments) => {
         try {
             const result = runBlockYoutube();
-            args.completionFunction(result);
+            arguments.completionFunction(result);
         } catch (ex) {
-            args.completionFunction({
+            arguments.completionFunction({
                 success: false,
                 status: 'error',
                 message: ex.toString(),
@@ -470,4 +470,4 @@ ExtensionJavaScriptClass.prototype = {
 
 // The JavaScript file must contain a global object named "ExtensionPreprocessingJS".
 // eslint-disable-next-line no-unused-vars
-const ExtensionPreprocessingJS = new ExtensionJavaScriptClass();
+var ExtensionPreprocessingJS = new ExtensionJavaScriptClass();

@@ -18,21 +18,10 @@
 /* global Response, window, navigator, document, MutationObserver, completion */
 
 /**
- * Note that Shortcut scripts are executed in their own context (window)
- * and we don't have direct access to the real page window.
- *
- * In order to overcome this, we add a "script" to the page which is
- * executed in the proper context. The script content is inside
- * the "pageScript" function.
+ * The function that implements all the logic.
+ * Returns the run status.
  */
-(() => {
-    // "completion" function is only defined if this script is launched as Shortcut
-    // in other cases we simply polyfill it.
-    let finish = (m) => { console.log(m); };
-    if (typeof completion !== 'undefined') {
-        finish = completion;
-    }
-
+function runBlockYoutube() {
     const locales = {
         en: {
             logo: 'with&nbsp;AdGuard',
@@ -126,19 +115,30 @@
     };
 
     if (document.getElementById('block-youtube-ads-logo')) {
-        finish(getMessage('alreadyExecuted'));
-        return;
+        return {
+            success: false,
+            status: 'alreadyExecuted',
+            message: getMessage('alreadyExecuted'),
+        };
     }
 
     if (window.location.hostname !== 'www.youtube.com'
         && window.location.hostname !== 'm.youtube.com'
         && window.location.hostname !== 'music.youtube.com') {
-        finish(getMessage('wrongDomain'));
-        return;
+        return {
+            success: false,
+            status: 'wrongDomain',
+            message: getMessage('wrongDomain'),
+        };
     }
 
     /**
-     * This function will be executed in the page context
+     * Note that Shortcut scripts are executed in their own context (window)
+     * and we don't have direct access to the real page window.
+     *
+     * In order to overcome this, we add a "script" to the page which is
+     * executed in the proper context. The script content is inside
+     * the "pageScript" function.
      */
     const pageScript = () => {
         const LOGO_ID = 'block-youtube-ads-logo';
@@ -439,5 +439,28 @@
     document.head.appendChild(script);
     document.head.removeChild(script);
 
-    finish(getMessage('success'));
+    return {
+        success: true,
+        status: 'success',
+        message: getMessage('success'),
+    };
+}
+
+/**
+ * Runs the shortcut
+ */
+(() => {
+    // "completion" function is only defined if this script is launched as Shortcut
+    // in other cases we simply polyfill it.
+    let finish = (m) => { console.log(m); };
+    if (typeof completion !== 'undefined') {
+        finish = completion;
+    }
+
+    try {
+        const result = runBlockYoutube();
+        finish(result.message);
+    } catch (ex) {
+        finish(ex.toString());
+    }
 })();
