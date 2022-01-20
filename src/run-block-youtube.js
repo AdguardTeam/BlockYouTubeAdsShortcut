@@ -15,13 +15,11 @@
  * along with AdGuard's Block YouTube Ads.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* global Response, window, navigator, document, MutationObserver, completion */
-
 /**
  * The function that implements all the logic.
  * Returns the run status.
  */
-function runBlockYoutube() {
+export function runBlockYoutube() {
     const locales = {
         en: {
             logo: 'with&nbsp;AdGuard',
@@ -445,22 +443,3 @@ function runBlockYoutube() {
         message: getMessage('success'),
     };
 }
-
-/**
- * Runs the shortcut
- */
-(() => {
-    // "completion" function is only defined if this script is launched as Shortcut
-    // in other cases we simply polyfill it.
-    let finish = (m) => { console.log(m); };
-    if (typeof completion !== 'undefined') {
-        finish = completion;
-    }
-
-    try {
-        const result = runBlockYoutube();
-        finish(result.message);
-    } catch (ex) {
-        finish(ex.toString());
-    }
-})();

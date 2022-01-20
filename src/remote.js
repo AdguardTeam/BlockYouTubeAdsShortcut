@@ -15,11 +15,11 @@
  * along with AdGuard's Block YouTube Ads.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* global fetch, completion */
+/* global completion */
 
 const url = 'https://raw.githubusercontent.com/AdguardTeam/BlockYouTubeAdsShortcut/master/index.js';
 
-// Downloads the shortcut code from Github and runs it.
+// Downloads the shortcut code from GitHub and runs it.
 async function runShortcut() {
     try {
         const response = await fetch(url);

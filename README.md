@@ -22,3 +22,18 @@ Please note, that every time you refresh the page, you need to run this shortcut
 With the standard version of the shortcut, you need to reinstall it to get the latest changes we make in this repo. If you are tired of doing that, there's also a "remote" version of the shortcut. It downloads the latest version of the code from this repo everytime it is launched.
 
 [Get the remote version](https://agrd.io/ios_youtube_shortcut_remote).
+
+## Development
+To build scripts from source you need yarn
+
+First install dependencies
+```
+yarn install
+```
+
+After that you can build
+```
+yarn build
+```
+
+Result of the build should appear in the `dist` directory

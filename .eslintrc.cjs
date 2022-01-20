@@ -3,6 +3,7 @@ module.exports = {
         node: true,
         commonjs: true,
         es2021: true,
+        browser: true,
     },
     extends: [
         'airbnb-base',
@@ -17,5 +18,10 @@ module.exports = {
         'no-prototype-builtins': 'off',
         'no-restricted-syntax': 'off',
         'guard-for-in': 'off',
+        'no-shadow': 'off',
+        'import/prefer-default-export': 'off',
+        'import/extensions': 'off',
+        'no-underscore-dangle': 'off',
+        'import/no-extraneous-dependencies': ['error', { devDependencies: ['/tasks/**/*'] }],
     },
 };

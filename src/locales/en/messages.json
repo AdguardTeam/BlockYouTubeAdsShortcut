@@ -1,0 +1,8 @@
+{
+  "name": {
+    "message": "Block YouTube Ads in Safari on iPhone/iPad"
+  },
+  "description": {
+    "message": "This is a very simple userscript that blocks YouTube ads on iPhone/iPad."
+  }
+}
