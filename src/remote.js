@@ -17,7 +17,7 @@
 
 /* global completion */
 
-const url = 'https://raw.githubusercontent.com/AdguardTeam/BlockYouTubeAdsShortcut/master/index.js';
+const url = 'https://raw.githubusercontent.com/AdguardTeam/BlockYouTubeAdsShortcut/master/dist/index.js';
 
 // Downloads the shortcut code from GitHub and runs it.
 async function runShortcut() {
