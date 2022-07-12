@@ -110,7 +110,13 @@
         message: getMessage("alreadyExecuted")
       };
     }
-    if (window.location.hostname !== "www.youtube.com" && window.location.hostname !== "m.youtube.com" && window.location.hostname !== "music.youtube.com") {
+    const allowedHostnames = [
+      "www.youtube.com",
+      "m.youtube.com",
+      "music.youtube.com",
+      "www.youtube-nocookie.com"
+    ];
+    if (!allowedHostnames.includes(window.location.hostname)) {
       return {
         success: false,
         status: "wrongDomain",
@@ -325,6 +331,13 @@
           const el = document.querySelector(".ytmusic-nav-bar#left-content");
           if (el) {
             el.appendChild(logo);
+            addAdGuardLogoStyle();
+          }
+        } else if (window.location.hostname === "www.youtube-nocookie.com") {
+          const code = document.querySelector("#yt-masthead #logo-container .content-region");
+          if (code) {
+            code.innerHTML = "";
+            code.appendChild(logo);
             addAdGuardLogoStyle();
           }
         }

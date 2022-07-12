@@ -19,7 +19,7 @@
 
 (() => {
   // src/remote.js
-  var url = "https://raw.githubusercontent.com/AdguardTeam/BlockYouTubeAdsShortcut/master/index.js";
+  var url = "https://raw.githubusercontent.com/AdguardTeam/BlockYouTubeAdsShortcut/master/dist/index.js";
   async function runShortcut() {
     try {
       const response = await fetch(url);
