@@ -15,7 +15,7 @@
 * along with AdGuard's Block YouTube Ads.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// AdGuard BlockYouTubeAdsShortcut v0.0.2
+// AdGuard BlockYouTubeAdsShortcut v0.0.3
 
 (() => {
   // src/run-block-youtube.js
