@@ -2,7 +2,7 @@
 // @name Block YouTube Ads in Safari on iPhone/iPad
 // @name:ru Заблокируйте рекламу на YouTube в Safari на iPhone/iPad
 // @namespace    adguard
-// @version      0.0.2
+// @version      0.0.3
 // @description This is a very simple userscript that blocks YouTube ads on iPhone/iPad.
 // @description:ru Это простой юзерскрипт, который блокирует рекламу на YouTube на iPhone/iPad.
 // @homepageURL  https://adguard.com/
@@ -104,7 +104,13 @@
         message: getMessage("alreadyExecuted")
       };
     }
-    if (window.location.hostname !== "www.youtube.com" && window.location.hostname !== "m.youtube.com" && window.location.hostname !== "music.youtube.com") {
+    const allowedHostnames = [
+      "www.youtube.com",
+      "m.youtube.com",
+      "music.youtube.com",
+      "www.youtube-nocookie.com"
+    ];
+    if (!allowedHostnames.includes(window.location.hostname)) {
       return {
         success: false,
         status: "wrongDomain",
@@ -319,6 +325,13 @@
           const el = document.querySelector(".ytmusic-nav-bar#left-content");
           if (el) {
             el.appendChild(logo);
+            addAdGuardLogoStyle();
+          }
+        } else if (window.location.hostname === "www.youtube-nocookie.com") {
+          const code = document.querySelector("#yt-masthead #logo-container .content-region");
+          if (code) {
+            code.innerHTML = "";
+            code.appendChild(logo);
             addAdGuardLogoStyle();
           }
         }

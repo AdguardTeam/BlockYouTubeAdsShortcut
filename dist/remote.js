@@ -15,11 +15,11 @@
 * along with AdGuard's Block YouTube Ads.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// AdGuard BlockYouTubeAdsShortcut v0.0.2
+// AdGuard BlockYouTubeAdsShortcut v0.0.3
 
 (() => {
   // src/remote.js
-  var url = "https://raw.githubusercontent.com/AdguardTeam/BlockYouTubeAdsShortcut/master/index.js";
+  var url = "https://raw.githubusercontent.com/AdguardTeam/BlockYouTubeAdsShortcut/master/dist/index.js";
   async function runShortcut() {
     try {
       const response = await fetch(url);
