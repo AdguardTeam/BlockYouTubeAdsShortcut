@@ -96,6 +96,8 @@ All pipelines run on the self-hosted `team-extensions` runner
 - **Permissions**: `contents: write`, `id-token: write`.
 - **Purpose**: open a release-bump PR that finalizes `CHANGELOG.md`. When
   merged, `publish-release.yml` takes over.
+- **Run name**: a manual run shows the requested tag in the Actions run
+  list, for example, `Prepare release v1.2.0`.
 
 ### Publish Release (`publish-release.yml`)
 
