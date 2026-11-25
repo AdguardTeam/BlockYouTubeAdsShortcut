@@ -43,7 +43,7 @@ setup and basic development instructions.
 | Field | Value |
 | --- | --- |
 | **Language** | JavaScript, ES modules (`"type": "module"` in `package.json`) |
-| **Node version** | ≥ 18 (CI Docker image `adguard/node-ssh:22.17--0`) |
+| **Node version** | ≥ 22.23.5 (CI Docker image `adguard/node-ssh:22.23--0`, Node.js 22.23.5) |
 | **Package manager** | Yarn 1.x (Classic) |
 | **Primary dependencies** | `esbuild` ^0.14.11 (bundler); `eslint` ^8.2.0 with `eslint-config-airbnb-base` 15.0.0 |
 | **Storage** | None — no database. `remote.js` fetches `index.js` from GitHub Releases at runtime |
@@ -51,7 +51,7 @@ setup and basic development instructions.
 | **Target platform** | Safari on iOS/iPadOS via Shortcuts; also runs as a userscript and a browser extension |
 | **Project type** | Single repository with a multi-output build |
 | **Performance goals** | N/A |
-| **Constraints** | All changes go through PR; CI builds inside Docker (`adguard/node-ssh:22.17--0`) |
+| **Constraints** | All changes go through PR; CI builds inside Docker (`adguard/node-ssh:22.23--0`) |
 | **Scale/Scope** | Public end-user tool, small codebase |
 | **License** | GPL-3.0 |
 
@@ -333,7 +333,7 @@ humans and AI agents that consume project documentation.
 - `completion` is a Safari Shortcuts global; it only exists inside the
   Shortcuts runtime and is polyfilled elsewhere.
 - CI runs on the `team-extensions` self-hosted runner and builds via Docker
-  (`adguard/node-ssh:22.17--0`).
+  (`adguard/node-ssh:22.23--0`).
 - Release flow: `prepare-release.yml` opens a release PR finalizing
   `CHANGELOG.md`; on merge, `publish-release.yml` tags, builds, mirrors to
   `AdguardTeam/BlockYouTubeAdsShortcut`, and creates a GitHub Release with the
